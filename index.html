@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Northstone Real Estate Group | Pacific Northwest</title>
+<meta name="description" content="Northstone Real Estate Group is a Pacific Northwest multifamily and residential investment and operating company. Simple, sophisticated, and straightforward.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --north: #0D1117;
+    --stone: #B5A99A;
+    --chalk: #F5F2ED;
+    --warm: #E8E1D8;
+    --ink: #1C1C1A;
+    --mist: #6B6560;
+    --accent: #C4A882;
+    --line: rgba(181,169,154,0.2);
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--north);
+    color: var(--chalk);
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* Custom cursor */
+  .cursor {
+    width: 8px; height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    position: fixed;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease;
+  }
+  .cursor-ring {
+    width: 32px; height: 32px;
+    border: 1px solid rgba(196,168,130,0.4);
+    border-radius: 50%;
+    position: fixed;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: all 0.15s ease;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 56px;
+    background: rgba(13,17,23,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--line);
+    transition: padding 0.3s ease;
+  }
+
+  nav.scrolled { padding: 16px 56px; }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .logo-text { }
+  .logo-name {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: 0.16em;
+    color: var(--chalk);
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .logo-sub {
+    font-size: 7px;
+    font-weight: 300;
+    letter-spacing: 0.28em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--stone);
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--chalk); }
+
+  .nav-cta {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--north);
+    background: var(--accent);
+    border: none;
+    padding: 10px 24px;
+    cursor: none;
+    transition: background 0.2s, transform 0.2s;
+    text-decoration: none;
+  }
+
+  .nav-cta:hover { background: var(--chalk); transform: translateY(-1px); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 120px 56px 80px;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 80% 50%, rgba(196,168,130,0.04) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(181,169,154,0.03) 0%, transparent 60%);
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse 70% 70% at 30% 50%, black 0%, transparent 70%);
+    opacity: 0.4;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 760px;
+  }
+
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 36px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.1s forwards;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .hero-eyebrow span {
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(56px, 8vw, 96px);
+    font-weight: 300;
+    line-height: 1.0;
+    letter-spacing: -0.01em;
+    color: var(--chalk);
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.25s forwards;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-desc {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--mist);
+    max-width: 480px;
+    margin-bottom: 52px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.4s forwards;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.55s forwards;
+  }
+
+  .btn-primary {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: var(--accent);
+    color: var(--north);
+    border: none;
+    padding: 16px 36px;
+    cursor: none;
+    transition: background 0.2s, transform 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: var(--chalk); transform: translateY(-2px); }
+
+  .btn-ghost {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: transparent;
+    color: var(--stone);
+    border: 1px solid var(--line);
+    padding: 16px 36px;
+    cursor: none;
+    transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-ghost:hover { border-color: var(--stone); color: var(--chalk); transform: translateY(-2px); }
+
+  .hero-mark {
+    position: absolute;
+    right: 6%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    animation: fadeIn 1.2s ease 0.7s forwards;
+  }
+
+  .hero-stats {
+    position: absolute;
+    bottom: 56px;
+    left: 56px;
+    right: 56px;
+    display: flex;
+    gap: 0;
+    border-top: 1px solid var(--line);
+    padding-top: 32px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.7s forwards;
+  }
+
+  .stat {
+    flex: 1;
+    padding-right: 40px;
+    border-right: 1px solid var(--line);
+    margin-right: 40px;
+  }
+
+  .stat:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--chalk);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--mist);
+  }
+
+  /* SECTIONS */
+  section { padding: 120px 56px; border-top: 1px solid var(--line); }
+
+  .section-header {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 64px;
+    margin-bottom: 72px;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding-top: 6px;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--chalk);
+  }
+
+  .section-title em { font-style: italic; color: var(--stone); }
+
+  /* APPROACH */
+  .pillars {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 64px;
+  }
+
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .pillar {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--line);
+    padding: 40px 32px;
+    transition: background 0.3s, border-color 0.3s;
+  }
+
+  .pillar:hover {
+    background: rgba(255,255,255,0.04);
+    border-color: rgba(196,168,130,0.3);
+  }
+
+  .pillar-num {
+    font-family: var(--serif);
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    margin-bottom: 24px;
+    display: block;
+  }
+
+  .pillar h3 {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--chalk);
+    margin-bottom: 16px;
+  }
+
+  .pillar p {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--mist);
+  }
+
+  /* FOCUS */
+  .focus-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    margin-top: 0;
+  }
+
+  .focus-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--line);
+    padding: 48px 40px;
+    transition: background 0.3s;
+  }
+
+  .focus-card:hover { background: rgba(255,255,255,0.04); }
+
+  .focus-card.accent { background: var(--accent); border-color: var(--accent); }
+  .focus-card.accent h3 { color: var(--north); }
+  .focus-card.accent p { color: rgba(13,17,23,0.65); }
+  .focus-card.accent .focus-num { color: rgba(13,17,23,0.4); }
+
+  .focus-num {
+    font-family: var(--serif);
+    font-size: 48px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.06);
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+
+  .focus-card h3 {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--chalk);
+    margin-bottom: 14px;
+    line-height: 1.2;
+  }
+
+  .focus-card p {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--mist);
+  }
+
+  /* MARKETS */
+  .markets-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .market-item {
+    padding: 36px 32px;
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,0.02);
+    transition: background 0.3s, border-color 0.3s;
+  }
+
+  .market-item:hover {
+    background: rgba(255,255,255,0.04);
+    border-color: rgba(196,168,130,0.3);
+  }
+
+  .market-name {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--chalk);
+    margin-bottom: 6px;
+  }
+
+  .market-state {
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .market-desc {
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--mist);
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 96px;
+    align-items: start;
+  }
+
+  .about-text p {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.85;
+    color: var(--mist);
+    margin-bottom: 20px;
+  }
+
+  .about-list {
+    list-style: none;
+    margin-top: 36px;
+    border-top: 1px solid var(--line);
+  }
+
+  .about-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--stone);
+    letter-spacing: 0.02em;
+  }
+
+  .about-list li::before {
+    content: '—';
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .contact-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--line);
+    padding: 48px 40px;
+  }
+
+  .contact-card-name {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--chalk);
+    margin-bottom: 4px;
+  }
+
+  .contact-card-title {
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 36px;
+  }
+
+  .contact-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .contact-row:last-child { border-bottom: none; }
+
+  .contact-key {
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mist);
+    min-width: 64px;
+  }
+
+  .contact-val {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--chalk);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .contact-val:hover { color: var(--accent); }
+
+  /* CONTACT SECTION */
+  .contact-section {
+    background: rgba(255,255,255,0.01);
+  }
+
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 96px;
+    align-items: start;
+  }
+
+  .contact-intro p {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.85;
+    color: var(--mist);
+    margin-bottom: 36px;
+  }
+
+  .phone-display {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 24px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .phone-label {
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mist);
+  }
+
+  .phone-num {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--chalk);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .phone-num:hover { color: var(--accent); }
+
+  /* FORM */
+  .contact-form { display: flex; flex-direction: column; gap: 16px; }
+
+  .form-group { display: flex; flex-direction: column; gap: 8px; }
+
+  .form-label {
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mist);
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--line);
+    color: var(--chalk);
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 300;
+    padding: 14px 16px;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+    appearance: none;
+  }
+
+  .form-input:focus,
+  .form-select:focus,
+  .form-textarea:focus { border-color: var(--accent); }
+
+  .form-input::placeholder,
+  .form-textarea::placeholder { color: var(--mist); }
+
+  .form-select option { background: var(--north); }
+
+  .form-textarea { resize: vertical; min-height: 120px; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .form-submit {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: var(--accent);
+    color: var(--north);
+    border: none;
+    padding: 16px 36px;
+    cursor: none;
+    transition: background 0.2s, transform 0.2s;
+    margin-top: 8px;
+    align-self: flex-start;
+  }
+
+  .form-submit:hover { background: var(--chalk); transform: translateY(-2px); }
+
+  /* FOOTER */
+  footer {
+    padding: 40px 56px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-logo {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    color: var(--stone);
+    text-transform: uppercase;
+  }
+
+  .footer-tag {
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mist);
+  }
+
+  .footer-copy {
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--mist);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    nav { padding: 20px 24px; }
+    nav.scrolled { padding: 14px 24px; }
+    .nav-links { display: none; }
+    .hero { padding: 100px 24px 80px; }
+    .hero-mark { display: none; }
+    .hero-stats { left: 24px; right: 24px; bottom: 32px; flex-wrap: wrap; gap: 20px; }
+    .stat { border-right: none; margin-right: 0; padding-right: 0; }
+    section { padding: 80px 24px; }
+    .section-header { grid-template-columns: 1fr; gap: 20px; }
+    .pillars { grid-template-columns: 1fr; }
+    .pillars-grid { grid-template-columns: 1fr; }
+    .focus-grid { grid-template-columns: 1fr; }
+    .markets-list { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+    .contact-layout { grid-template-columns: 1fr; gap: 48px; }
+    .form-row { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 16px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="logo">
+    <svg width="36" height="40" viewBox="0 0 44 48" fill="none">
+      <polygon points="22,2 40,12 40,36 22,46 4,36 4,12" fill="none" stroke="#C4A882" stroke-width="1"/>
+      <polygon points="22,10 33,16 33,30 22,38 11,32 11,18" fill="none" stroke="#C4A882" stroke-width="0.5" opacity="0.5"/>
+      <line x1="22" y1="2" x2="22" y2="46" stroke="#C4A882" stroke-width="0.5" opacity="0.3"/>
+      <line x1="4" y1="12" x2="40" y2="36" stroke="#C4A882" stroke-width="0.5" opacity="0.3"/>
+      <line x1="40" y1="12" x2="4" y2="36" stroke="#C4A882" stroke-width="0.5" opacity="0.3"/>
+      <circle cx="22" cy="24" r="3.5" fill="#C4A882" opacity="0.85"/>
+    </svg>
+    <div class="logo-text">
+      <div class="logo-name">Northstone</div>
+      <div class="logo-sub">Real Estate Group</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#approach">Approach</a></li>
+    <li><a href="#focus">Focus</a></li>
+    <li><a href="#markets">Markets</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact" class="nav-cta">Connect</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow"><span>Pacific Northwest Real Estate</span></div>
+    <h1>Property<br>with <em>purpose.</em></h1>
+    <p class="hero-desc">Northstone is a Pacific Northwest multifamily and residential real estate investment and operating company — built on a simple, sophisticated, and straightforward approach to every deal.</p>
+    <div class="hero-actions">
+      <a href="#focus" class="btn-primary">Our Focus</a>
+      <a href="#contact" class="btn-ghost">Work With Us</a>
+    </div>
+  </div>
+
+  <div class="hero-mark">
+    <svg width="280" height="320" viewBox="0 0 280 320" fill="none" opacity="0.25">
+      <polygon points="140,10 260,75 260,245 140,310 20,245 20,75" fill="none" stroke="#C4A882" stroke-width="1"/>
+      <polygon points="140,50 220,95 220,225 140,270 60,225 60,95" fill="none" stroke="#C4A882" stroke-width="0.5"/>
+      <polygon points="140,90 180,115 180,205 140,230 100,205 100,115" fill="none" stroke="#C4A882" stroke-width="0.5"/>
+      <line x1="140" y1="10" x2="140" y2="310" stroke="#C4A882" stroke-width="0.4"/>
+      <line x1="20" y1="75" x2="260" y2="245" stroke="#C4A882" stroke-width="0.4"/>
+      <line x1="260" y1="75" x2="20" y2="245" stroke="#C4A882" stroke-width="0.4"/>
+      <circle cx="140" cy="160" r="12" fill="#C4A882" opacity="0.6"/>
+      <circle cx="140" cy="160" r="24" fill="none" stroke="#C4A882" stroke-width="0.5" opacity="0.4"/>
+    </svg>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">PNW</div>
+      <div class="stat-label">Regional Focus</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">2–50+</div>
+      <div class="stat-label">Unit Multifamily</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">Investors<br>+ Sellers</div>
+      <div class="stat-label">Who We Serve</div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section id="approach">
+  <div class="section-header reveal">
+    <div class="section-label">Our Philosophy</div>
+    <h2 class="section-title">Simple, sophisticated,<br>and <em>straightforward.</em></h2>
+  </div>
+  <div class="pillars">
+    <div></div>
+    <div class="pillars-grid">
+      <div class="pillar reveal">
+        <span class="pillar-num">01</span>
+        <h3>Simple</h3>
+        <p>Clear communication at every step. No jargon, no ambiguity. Investors and sellers always know exactly where they stand and why decisions are made.</p>
+      </div>
+      <div class="pillar reveal">
+        <span class="pillar-num">02</span>
+        <h3>Sophisticated</h3>
+        <p>Market-informed, data-driven analysis. We identify value where others don't — translating deep regional knowledge into durable investment outcomes.</p>
+      </div>
+      <div class="pillar reveal">
+        <span class="pillar-num">03</span>
+        <h3>Straightforward</h3>
+        <p>No games, no runaround. We say what we mean and follow through. Every relationship — investor, seller, or partner — is built on honesty from day one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOCUS -->
+<section id="focus">
+  <div class="section-header reveal">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">Multifamily and residential<br><em>investment & operations.</em></h2>
+  </div>
+  <div class="focus-grid">
+    <div class="focus-card accent reveal">
+      <div class="focus-num">01</div>
+      <h3>Multifamily Acquisitions</h3>
+      <p>We acquire multifamily properties ranging from 2 to 50+ units across key Pacific Northwest markets, with a focus on value-add opportunities and stable cash-flowing assets.</p>
+    </div>
+    <div class="focus-card reveal">
+      <div class="focus-num">02</div>
+      <h3>Residential Investment</h3>
+      <p>Single-family and small residential holdings — buy-and-hold, value-add, and strategic repositioning across growing PNW submarkets.</p>
+    </div>
+    <div class="focus-card reveal">
+      <div class="focus-num">03</div>
+      <h3>Asset Management</h3>
+      <p>We don't just acquire — we operate. Hands-on asset management ensures every property performs to its potential from day one of ownership.</p>
+    </div>
+    <div class="focus-card reveal">
+      <div class="focus-num">04</div>
+      <h3>Investor Relations</h3>
+      <p>Transparent reporting, direct communication, and disciplined stewardship of capital. We treat every investor relationship as a long-term partnership.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MARKETS -->
+<section id="markets">
+  <div class="section-header reveal">
+    <div class="section-label">Where We Operate</div>
+    <h2 class="section-title">Deep roots in the<br><em>Pacific Northwest.</em></h2>
+  </div>
+  <div class="markets-list">
+    <div class="market-item reveal">
+      <div class="market-name">Snohomish County</div>
+      <div class="market-state">Washington</div>
+      <p class="market-desc">Our home market. Deep local relationships, strong multifamily fundamentals, and a growing population base make this a core focus area for Northstone.</p>
+    </div>
+    <div class="market-item reveal">
+      <div class="market-name">Greater Seattle</div>
+      <div class="market-state">Washington</div>
+      <p class="market-desc">The economic engine of the Pacific Northwest. We track submarkets closely for off-market multifamily opportunities across the metro.</p>
+    </div>
+    <div class="market-item reveal">
+      <div class="market-name">Puget Sound Region</div>
+      <div class="market-state">Washington</div>
+      <p class="market-desc">Tacoma, Everett, Bellingham, and surrounding communities — markets with strong rental demand and compelling value relative to the urban core.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header reveal">
+    <div class="section-label">Who We Are</div>
+    <h2 class="section-title">Built for the long<br><em>game.</em></h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>Northstone Real Estate Group is a Pacific Northwest–based real estate investment and operating company focused on multifamily and residential assets. We partner with investors seeking reliable, regionally-focused exposure to one of the most resilient real estate markets in the country.</p>
+      <p>We work directly with property owners who are evaluating their options — whether that's selling, exploring a partnership, or simply understanding what their asset is worth in today's market. Our approach is always the same: listen first, talk numbers second.</p>
+      <ul class="about-list">
+        <li>Off-market sourcing and direct owner outreach</li>
+        <li>Multifamily acquisitions — 2 to 50+ units</li>
+        <li>Residential value-add and buy-and-hold</li>
+        <li>Transparent investor reporting and communication</li>
+        <li>Hands-on asset management and operations</li>
+      </ul>
+    </div>
+    <div class="contact-card reveal">
+      <div class="contact-card-name">Jonathan Mendoza</div>
+      <div class="contact-card-title">Principal · Northstone Real Estate Group</div>
+      <div class="contact-detail">
+        <div class="contact-row">
+          <span class="contact-key">Phone</span>
+          <a href="tel:2064503078" class="contact-val">206-450-3078</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-key">Email</span>
+          <a href="mailto:jonathan@northstoneregroup.com" class="contact-val">jonathan@northstoneregroup.com</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-key">Web</span>
+          <a href="https://northstoneregroup.com" class="contact-val">northstoneregroup.com</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-key">Market</span>
+          <span class="contact-val">Pacific Northwest</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="section-header reveal">
+    <div class="section-label">Get In Touch</div>
+    <h2 class="section-title">Let's start a<br><em>conversation.</em></h2>
+  </div>
+  <div class="contact-layout">
+    <div class="contact-intro reveal">
+      <p>Whether you're an investor looking for multifamily exposure in the Pacific Northwest, or a property owner open to a conversation about your asset — we'd like to hear from you.</p>
+      <p>No pressure, no obligation. Just a straightforward conversation about where you're at and whether there's a fit.</p>
+      <div class="phone-display">
+        <div>
+          <div class="phone-label">Call or text directly</div>
+          <a href="tel:2064503078" class="phone-num">206-450-3078</a>
+        </div>
+      </div>
+    </div>
+    <form class="contact-form reveal" action="https://formsubmit.co/jonathan@northstoneregroup.com" method="POST">
+      <input type="hidden" name="_subject" value="New inquiry from northstoneregroup.com">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://northstoneregroup.com">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">First name</label>
+          <input type="text" class="form-input" name="first_name" placeholder="Richard" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Last name</label>
+          <input type="text" class="form-input" name="last_name" placeholder="Burt" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-input" name="email" placeholder="you@example.com" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Phone</label>
+        <input type="tel" class="form-input" name="phone" placeholder="206-555-0100">
+      </div>
+      <div class="form-group">
+        <label class="form-label">I am a...</label>
+        <select class="form-select" name="inquiry_type">
+          <option value="">Select one</option>
+          <option value="investor">Prospective investor / capital partner</option>
+          <option value="seller">Property owner open to a conversation</option>
+          <option value="broker">Broker or agent with a deal</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Message</label>
+        <textarea class="form-textarea" name="message" placeholder="Tell us a bit about what you're working on or what you'd like to discuss..."></textarea>
+      </div>
+      <button type="submit" class="form-submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Northstone</div>
+  <div class="footer-tag">Simple · Sophisticated · Straightforward</div>
+  <div class="footer-copy">© 2026 Northstone Group LLC · northstoneregroup.com</div>
+</footer>
+
+<script>
+  // Cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; });
+  function animateRing() { rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(animateRing); }
+  animateRing();
+  document.querySelectorAll('a, button, input, textarea, select').forEach(el => {
+    el.addEventListener('mouseenter', () => { ring.style.transform = 'translate(-50%,-50%) scale(1.8)'; ring.style.borderColor = 'rgba(196,168,130,0.8)'; });
+    el.addEventListener('mouseleave', () => { ring.style.transform = 'translate(-50%,-50%) scale(1)'; ring.style.borderColor = 'rgba(196,168,130,0.4)'; });
+  });
+
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
