@@ -39,7 +39,7 @@
   .hero-eyebrow::before { content: ''; display: block; width: 40px; height: 1px; background: var(--accent); flex-shrink: 0; }
   .hero-eyebrow span { font-size: 10px; font-weight: 400; letter-spacing: 0.24em; text-transform: uppercase; color: var(--accent); }
 
-  .tagline-wrap { position: relative; height: 106px; overflow: hidden; margin-bottom: 20px; opacity: 0; animation: fadeUp 0.9s ease 0.25s forwards; }
+  .tagline-wrap { position: relative; height: 175px; overflow: hidden; margin-bottom: 20px; opacity: 0; animation: fadeUp 0.9s ease 0.25s forwards; }
   .tagline { position: absolute; font-family: var(--serif); font-size: clamp(44px, 6.5vw, 82px); font-weight: 300; line-height: 1.05; color: var(--chalk); opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .tagline em { font-style: italic; color: var(--accent); }
   .tagline.active { opacity: 1; transform: translateY(0); }
@@ -271,7 +271,7 @@
 <section id="focus">
   <div class="section-header reveal">
     <div class="section-label">What We Do</div>
-    <h2 class="section-title">Multifamily and residential<br><em>investment & operations.</em></h2>
+    <h2 class="section-title">Multifamily and residential<br><em>investment and asset management.</em></h2>
   </div>
   <div class="focus-grid">
     <div class="focus-card accent reveal">
@@ -337,8 +337,8 @@
       <div class="contact-card-name">Jonathan Mendoza</div>
       <div class="contact-card-title">Principal · Northstone Real Estate Group</div>
       <div>
-        <div class="contact-row"><span class="contact-key">Phone</span><a href="tel:2064503078" class="contact-val">206-450-3078</a></div>
-        <div class="contact-row"><span class="contact-key">Email</span><a href="mailto:jonathan@northstoneregroup.com" class="contact-val">jonathan@northstoneregroup.com</a></div>
+
+        <div class="contact-row"><span class="contact-key">Email</span><a href="/cdn-cgi/l/email-protection#cda7a2a3acb9a5aca38da3a2bfb9a5beb9a2a3a8bfa8aabfa2b8bde3aea2a0" class="contact-val"><span class="__cf_email__" data-cfemail="9df7f2f3fce9f5fcf3ddf3f2efe9f5eee9f2f3f8eff8faeff2e8edb3fef2f0">[email&#160;protected]</span></a></div>
         <div class="contact-row"><span class="contact-key">Web</span><a href="https://northstoneregroup.com" class="contact-val">northstoneregroup.com</a></div>
         <div class="contact-row"><span class="contact-key">Market</span><span class="contact-val">Pacific Northwest</span></div>
       </div>
@@ -355,10 +355,7 @@
     <div class="contact-intro reveal">
       <p>Whether you're an investor looking for multifamily exposure in the Pacific Northwest, a property owner open to a conversation about your asset, or someone who needs help with asset management — we'd like to hear from you.</p>
       <p>No pressure, no obligation. Just a straightforward conversation about where you're at and whether there's a fit.</p>
-      <div class="phone-display">
-        <div class="phone-label">Call or text directly</div>
-        <a href="tel:2064503078" class="phone-num">206-450-3078</a>
-      </div>
+
     </div>
     <form class="contact-form reveal" action="https://formsubmit.co/jonathan@northstoneregroup.com" method="POST">
       <input type="hidden" name="_subject" value="New inquiry from northstoneregroup.com">
@@ -369,7 +366,7 @@
         <div class="form-group"><label class="form-label">Last name</label><input type="text" class="form-input" name="last_name" placeholder="Last" required></div>
       </div>
       <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input" name="email" placeholder="you@example.com" required></div>
-      <div class="form-group"><label class="form-label">Phone</label><input type="tel" class="form-input" name="phone" placeholder="206-555-0100"></div>
+
       <div class="form-group">
         <label class="form-label">I am a...</label>
         <select class="form-select" name="inquiry_type">
@@ -394,7 +391,7 @@
   <div class="footer-copy">© 2026 Northstone Group LLC · northstoneregroup.com</div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const cursor = document.getElementById('cursor');
   const ring = document.getElementById('cursorRing');
   let mx = 0, my = 0, rx = 0, ry = 0;
@@ -421,9 +418,4 @@
   setInterval(nextTagline, 3500);
 
   const observer = new IntersectionObserver(entries => {
-    entries.forEach((e,i) => { if(e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i*80); observer.unobserve(e.target); } });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
-</body>
-</html>
+    entries.
