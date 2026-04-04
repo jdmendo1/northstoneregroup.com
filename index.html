@@ -18,7 +18,6 @@ body{font-family:var(--sans);background:var(--north);color:var(--chalk);overflow
 .cursor{width:8px;height:8px;background:var(--accent);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
 .cursor-ring{width:32px;height:32px;border:1px solid rgba(196,168,130,0.4);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all 0.15s ease}
 
-/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:24px 56px;background:rgba(13,17,23,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);transition:padding 0.3s}
 nav.scrolled{padding:16px 56px}
 .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
@@ -30,7 +29,6 @@ nav.scrolled{padding:16px 56px}
 .nav-cta{background:#C4A882 !important;color:#0D1117 !important;padding:10px 24px !important;font-size:11px !important;letter-spacing:0.1em !important;text-transform:uppercase !important;font-weight:400 !important;transition:background 0.2s !important}
 .nav-cta:hover{background:#F5F2ED !important;color:#0D1117 !important}
 
-/* HERO */
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;padding:140px 56px 200px}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(196,168,130,0.04) 0%,transparent 70%)}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse 70% 70% at 30% 50%,black 0%,transparent 70%);opacity:0.4}
@@ -38,8 +36,6 @@ nav.scrolled{padding:16px 56px}
 .hero-eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:32px;opacity:0;animation:fadeUp 0.8s ease 0.1s forwards}
 .hero-eyebrow::before{content:'';display:block;width:40px;height:1px;background:var(--accent);flex-shrink:0}
 .hero-eyebrow span{font-size:10px;font-weight:400;letter-spacing:0.24em;text-transform:uppercase;color:var(--accent)}
-
-/* ROTATING TAGLINE */
 .tagline-wrap{position:relative;height:200px;overflow:hidden;margin-bottom:20px;opacity:0;animation:fadeUp 0.9s ease 0.25s forwards}
 .tagline{position:absolute;font-family:var(--serif);font-size:clamp(44px,6.5vw,80px);font-weight:300;line-height:1.1;color:var(--chalk);opacity:0;transform:translateY(20px);transition:opacity 0.7s ease,transform 0.7s ease}
 .tagline em{font-style:italic;color:var(--accent)}
@@ -48,14 +44,12 @@ nav.scrolled{padding:16px 56px}
 .tagline-dots{display:flex;gap:8px;margin-bottom:32px;opacity:0;animation:fadeUp 0.9s ease 0.35s forwards}
 .tdot{width:20px;height:1px;background:rgba(181,169,154,0.3);transition:background 0.4s,width 0.4s}
 .tdot.active{background:var(--accent);width:36px}
-
 .hero-desc{font-size:15px;font-weight:300;line-height:1.75;color:var(--mist);max-width:480px;margin-bottom:48px;opacity:0;animation:fadeUp 0.9s ease 0.45s forwards}
 .hero-actions{display:flex;gap:16px;align-items:center;opacity:0;animation:fadeUp 0.9s ease 0.55s forwards}
 .btn-primary{font-family:var(--sans);font-size:11px;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;background:var(--accent);color:var(--north);border:none;padding:16px 36px;cursor:none;transition:background 0.2s,transform 0.2s;text-decoration:none;display:inline-block}
 .btn-primary:hover{background:var(--chalk);transform:translateY(-2px)}
 .btn-ghost{font-family:var(--sans);font-size:11px;font-weight:300;letter-spacing:0.12em;text-transform:uppercase;background:transparent;color:var(--stone);border:1px solid var(--line);padding:16px 36px;cursor:none;transition:border-color 0.2s,color 0.2s,transform 0.2s;text-decoration:none;display:inline-block}
 .btn-ghost:hover{border-color:var(--stone);color:var(--chalk);transform:translateY(-2px)}
-
 .hero-mark{position:absolute;right:6%;top:50%;transform:translateY(-50%);opacity:0;animation:fadeIn 1.2s ease 0.7s forwards}
 .hero-stats{position:absolute;bottom:56px;left:56px;right:56px;display:flex;border-top:1px solid var(--line);padding-top:32px;opacity:0;animation:fadeUp 0.9s ease 0.7s forwards;z-index:2}
 .stat{flex:1;padding-right:40px;border-right:1px solid var(--line);margin-right:40px}
@@ -63,14 +57,12 @@ nav.scrolled{padding:16px 56px}
 .stat-num{font-family:var(--serif);font-size:26px;font-weight:300;color:var(--chalk);line-height:1.1;margin-bottom:6px}
 .stat-label{font-size:10px;font-weight:300;letter-spacing:0.16em;text-transform:uppercase;color:var(--mist)}
 
-/* SECTIONS */
 section{padding:120px 56px;border-top:1px solid var(--line)}
 .section-header{display:grid;grid-template-columns:200px 1fr;gap:64px;margin-bottom:72px}
 .section-label{font-size:10px;font-weight:400;letter-spacing:0.24em;text-transform:uppercase;color:var(--accent);padding-top:6px}
 .section-title{font-family:var(--serif);font-size:clamp(36px,4vw,52px);font-weight:300;line-height:1.1;color:var(--chalk)}
 .section-title em{font-style:italic;color:var(--stone)}
 
-/* PILLARS */
 .pillars{display:grid;grid-template-columns:200px 1fr;gap:64px}
 .pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
 .pillar{background:rgba(255,255,255,0.02);border:1px solid var(--line);padding:40px 32px;transition:background 0.3s,border-color 0.3s}
@@ -79,7 +71,6 @@ section{padding:120px 56px;border-top:1px solid var(--line)}
 .pillar h3{font-family:var(--serif);font-size:28px;font-weight:400;color:var(--chalk);margin-bottom:16px}
 .pillar p{font-size:13px;font-weight:300;line-height:1.8;color:var(--mist)}
 
-/* FOCUS */
 .focus-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}
 .focus-card{background:rgba(255,255,255,0.02);border:1px solid var(--line);padding:48px 40px;transition:background 0.3s}
 .focus-card:hover{background:rgba(255,255,255,0.04)}
@@ -91,7 +82,6 @@ section{padding:120px 56px;border-top:1px solid var(--line)}
 .focus-card h3{font-family:var(--serif);font-size:26px;font-weight:400;color:var(--chalk);margin-bottom:14px;line-height:1.2}
 .focus-card p{font-size:13px;font-weight:300;line-height:1.8;color:var(--mist)}
 
-/* MARKETS */
 .markets-list{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}
 .market-item{padding:36px 32px;border:1px solid var(--line);background:rgba(255,255,255,0.02);transition:background 0.3s,border-color 0.3s}
 .market-item:hover{background:rgba(255,255,255,0.04);border-color:rgba(196,168,130,0.3)}
@@ -100,21 +90,20 @@ section{padding:120px 56px;border-top:1px solid var(--line)}
 .market-desc{font-size:12px;font-weight:300;line-height:1.7;color:var(--mist)}
 
 /* ABOUT */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:start}
-.about-text p{font-size:15px;font-weight:300;line-height:1.85;color:var(--mist);margin-bottom:20px}
-.about-list{list-style:none;margin-top:36px;border-top:1px solid var(--line)}
-.about-list li{display:flex;align-items:flex-start;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);font-size:13px;font-weight:300;color:var(--stone)}
-.about-list li::before{content:'—';color:var(--accent);flex-shrink:0}
-.contact-card{background:rgba(255,255,255,0.02);border:1px solid var(--line);padding:48px 40px}
-.contact-card-name{font-family:var(--serif);font-size:32px;font-weight:400;color:var(--chalk);margin-bottom:4px}
-.contact-card-title{font-size:10px;font-weight:300;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);margin-bottom:36px}
-.contact-row{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
-.contact-row:last-child{border-bottom:none}
-.contact-key{font-size:10px;font-weight:300;letter-spacing:0.18em;text-transform:uppercase;color:var(--mist);min-width:64px}
-.contact-val{font-size:13px;font-weight:300;color:var(--chalk);text-decoration:none;transition:color 0.2s}
-.contact-val:hover{color:var(--accent)}
+.about-company{margin-bottom:80px;padding-bottom:80px;border-bottom:1px solid var(--line)}
+.about-company-text{max-width:720px}
+.about-company-text p{font-size:15px;font-weight:300;line-height:1.85;color:var(--mist);margin-bottom:20px}
+.about-company-text p:last-child{margin-bottom:0}
+.founder-name{font-family:var(--serif);font-size:36px;font-weight:400;color:var(--chalk);margin-bottom:4px}
+.founder-title{font-size:10px;font-weight:300;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);margin-bottom:28px}
+.founder-bio{font-size:15px;font-weight:300;line-height:1.85;color:var(--mist);max-width:720px;margin-bottom:40px}
+.founder-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:32px}
+.f-stat{background:rgba(255,255,255,0.02);border:1px solid var(--line);padding:28px 24px}
+.f-stat-num{font-family:var(--serif);font-size:28px;font-weight:300;color:var(--chalk);line-height:1;margin-bottom:8px}
+.f-stat-label{font-size:10px;font-weight:300;letter-spacing:0.14em;text-transform:uppercase;color:var(--mist)}
+.financing{display:flex;flex-wrap:wrap;gap:8px}
+.fin-tag{font-size:11px;font-weight:300;padding:6px 16px;border:1px solid var(--line);color:var(--stone);letter-spacing:0.08em}
 
-/* CONTACT */
 .contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:start}
 .contact-intro p{font-size:15px;font-weight:300;line-height:1.85;color:var(--mist);margin-bottom:20px}
 .contact-form{display:flex;flex-direction:column;gap:16px}
@@ -129,7 +118,6 @@ section{padding:120px 56px;border-top:1px solid var(--line)}
 .form-submit{font-family:var(--sans);font-size:11px;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;background:var(--accent);color:var(--north);border:none;padding:16px 36px;cursor:none;transition:background 0.2s,transform 0.2s;margin-top:8px;align-self:flex-start}
 .form-submit:hover{background:var(--chalk);transform:translateY(-2px)}
 
-/* FOOTER */
 footer{padding:40px 56px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
 .footer-logo{font-family:var(--serif);font-size:18px;font-weight:300;letter-spacing:0.12em;color:var(--stone);text-transform:uppercase}
 .footer-tag{font-size:10px;font-weight:300;letter-spacing:0.2em;text-transform:uppercase;color:var(--mist)}
@@ -150,7 +138,7 @@ footer{padding:40px 56px;border-top:1px solid var(--line);display:flex;justify-c
   .section-header{grid-template-columns:1fr;gap:20px}
   .pillars{grid-template-columns:1fr}.pillars-grid{grid-template-columns:1fr}
   .focus-grid{grid-template-columns:1fr}.markets-list{grid-template-columns:1fr}
-  .about-grid{grid-template-columns:1fr;gap:48px}
+  .founder-stats{grid-template-columns:repeat(2,1fr)}
   .contact-layout{grid-template-columns:1fr;gap:48px}.form-row{grid-template-columns:1fr}
   footer{flex-direction:column;gap:16px;text-align:center}
 }
@@ -161,7 +149,6 @@ footer{padding:40px 56px;border-top:1px solid var(--line);display:flex;justify-c
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
-<!-- NAV -->
 <nav id="nav">
   <a href="#" class="logo">
     <svg width="36" height="40" viewBox="0 0 44 48" fill="none">
@@ -186,7 +173,6 @@ footer{padding:40px 56px;border-top:1px solid var(--line);display:flex;justify-c
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
@@ -202,7 +188,7 @@ footer{padding:40px 56px;border-top:1px solid var(--line);display:flex;justify-c
       <div class="tdot" id="d1"></div>
       <div class="tdot" id="d2"></div>
     </div>
-    <p class="hero-desc">Northstone is a Pacific Northwest multifamily and residential real estate investment and operating company — built on a simple, sophisticated, and straightforward approach to every deal.</p>
+    <p class="hero-desc">Northstone is a Pacific Northwest multifamily and residential real estate investment and operating company built on a simple, sophisticated, and straightforward approach to every deal.</p>
     <div class="hero-actions">
       <a href="#focus" class="btn-primary">Our Focus</a>
       <a href="#contact" class="btn-ghost">Work With Us</a>
@@ -221,22 +207,12 @@ footer{padding:40px 56px;border-top:1px solid var(--line);display:flex;justify-c
     </svg>
   </div>
   <div class="hero-stats">
-    <div class="stat">
-      <div class="stat-num">PNW</div>
-      <div class="stat-label">Regional Focus</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">Multifamily</div>
-      <div class="stat-label">Primary Asset Type</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">Partners<br>&amp; Owners</div>
-      <div class="stat-label">Who We Serve</div>
-    </div>
+    <div class="stat"><div class="stat-num">PNW</div><div class="stat-label">Regional Focus</div></div>
+    <div class="stat"><div class="stat-num">Multifamily</div><div class="stat-label">Primary Asset Type</div></div>
+    <div class="stat"><div class="stat-num">Partners<br>&amp; Owners</div><div class="stat-label">Who We Serve</div></div>
   </div>
 </section>
 
-<!-- APPROACH -->
 <section id="approach">
   <div class="section-header reveal">
     <div class="section-label">Our Philosophy</div>
@@ -264,7 +240,6 @@ footer{padding:40px 56px;border-top:1px solid var(--line);display:flex;justify-c
   </div>
 </section>
 
-<!-- FOCUS -->
 <section id="focus">
   <div class="section-header reveal">
     <div class="section-label">What We Do</div>
@@ -294,7 +269,6 @@ footer{padding:40px 56px;border-top:1px solid var(--line);display:flex;justify-c
   </div>
 </section>
 
-<!-- MARKETS -->
 <section id="markets">
   <div class="section-header reveal">
     <div class="section-label">Where We Operate</div>
@@ -314,35 +288,43 @@ footer{padding:40px 56px;border-top:1px solid var(--line);display:flex;justify-c
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="section-header reveal">
     <div class="section-label">Who We Are</div>
-    <h2 class="section-title">Built for the long<br><em>game.</em></h2>
+    <h2 class="section-title">A firm built on<br><em>real experience.</em></h2>
   </div>
-  <div class="about-grid">
-    <div class="about-text reveal">
-      <p>Northstone Real Estate Group is a Pacific Northwest-based real estate investment and operating company focused on multifamily and residential assets. We partner with investors seeking reliable, regionally-focused exposure to one of the most resilient real estate markets in the country.</p>
-      <p>We work directly with property owners who are evaluating their options — whether that's selling, exploring a partnership, or simply understanding what their asset is worth in today's market. Our approach is always the same: listen first, talk numbers second.</p>
-      <ul class="about-list">
-        <li>Off-market sourcing and direct owner outreach</li>
-        <li>Multifamily acquisitions across the PNW</li>
-        <li>Residential value-add and buy-and-hold</li>
-        <li>Transparent investor reporting and communication</li>
-        <li>Hands-on asset management and operations</li>
-      </ul>
+
+  <div class="about-company reveal">
+    <div class="about-company-text">
+      <p>Northstone Real Estate Group is a Pacific Northwest investment and operating company focused on multifamily and residential real estate. We partner with investors seeking disciplined, regionally focused exposure to one of the country's most resilient real estate markets and work directly with property owners who are ready to have an honest conversation about their options.</p>
+      <p>What sets Northstone apart isn't just what we invest in — it's how we operate. Every decision is grounded in institutional-grade analysis, transparent communication, and a long-term perspective. We don't chase deals. We build relationships, evaluate carefully, and execute with conviction.</p>
+      <p>Whether you're looking to deploy capital, explore a sale, or find a partner who understands the full lifecycle of a real estate investment, Northstone is built for that conversation.</p>
     </div>
-    <div class="contact-card reveal">
-      <div class="contact-card-name">Jonathan Mendoza</div>
-      <div class="contact-card-title">Principal &middot; Northstone Real Estate Group</div>
-      <div class="contact-row"><span class="contact-key">Email</span><a href="mailto:jonathan@northstoneregroup.com" class="contact-val">jonathan@northstoneregroup.com</a></div>
-      <div class="contact-row"><span class="contact-key">Web</span><a href="https://northstoneregroup.com" class="contact-val">northstoneregroup.com</a></div>
-      <div class="contact-row"><span class="contact-key">Market</span><span class="contact-val">Pacific Northwest</span></div>
+  </div>
+
+  <div class="reveal">
+    <div class="founder-name">Jonathan Mendoza</div>
+    <div class="founder-title">Founder &amp; Principal</div>
+    <p class="founder-bio">Jonathan is a Pacific Northwest-based real estate professional with nearly 20 years of experience on the investment and ownership side of the industry. His career has been defined by two things: evaluating and executing deals, and building the organizations that make those deals perform. He has managed portfolios exceeding $1 billion, structured over $330 million in total capitalization across equity and debt, and helped scale two of the Pacific Northwest's most active multifamily investment firms by building asset management infrastructure, standardizing investor relations, and growing active deal pipelines from the ground up. His financing experience spans the full capital stack — from bridge and construction loans to permanent agency debt through Fannie Mae, Freddie Mac, and HUD. Northstone is the next step — his own platform, built the right way.</p>
+    <div class="founder-stats">
+      <div class="f-stat"><div class="f-stat-num">20+</div><div class="f-stat-label">Years in real estate</div></div>
+      <div class="f-stat"><div class="f-stat-num">$1B+</div><div class="f-stat-label">Portfolio managed</div></div>
+      <div class="f-stat"><div class="f-stat-num">$330M+</div><div class="f-stat-label">Capital structured</div></div>
+      <div class="f-stat"><div class="f-stat-num">Multi-state</div><div class="f-stat-label">Deal experience</div></div>
+    </div>
+    <div class="financing">
+      <span class="fin-tag">Fannie Mae</span>
+      <span class="fin-tag">Freddie Mac</span>
+      <span class="fin-tag">HUD</span>
+      <span class="fin-tag">Bridge Loans</span>
+      <span class="fin-tag">Construction Debt</span>
+      <span class="fin-tag">Permanent Financing</span>
+      <span class="fin-tag">Cash-out Refinance</span>
+      <span class="fin-tag">Equity Raises</span>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="section-header reveal">
     <div class="section-label">Get In Touch</div>
@@ -358,19 +340,10 @@ footer{padding:40px 56px;border-top:1px solid var(--line);display:flex;justify-c
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_next" value="https://northstoneregroup.com">
       <div class="form-row">
-        <div class="form-group">
-          <label class="form-label">First name</label>
-          <input type="text" class="form-input" name="first_name" placeholder="First" required>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Last name</label>
-          <input type="text" class="form-input" name="last_name" placeholder="Last" required>
-        </div>
+        <div class="form-group"><label class="form-label">First name</label><input type="text" class="form-input" name="first_name" placeholder="First" required></div>
+        <div class="form-group"><label class="form-label">Last name</label><input type="text" class="form-input" name="last_name" placeholder="Last" required></div>
       </div>
-      <div class="form-group">
-        <label class="form-label">Email</label>
-        <input type="email" class="form-input" name="email" placeholder="you@example.com" required>
-      </div>
+      <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input" name="email" placeholder="you@example.com" required></div>
       <div class="form-group">
         <label class="form-label">I am a...</label>
         <select class="form-select" name="inquiry_type">
@@ -383,16 +356,12 @@ footer{padding:40px 56px;border-top:1px solid var(--line);display:flex;justify-c
           <option value="other">Other</option>
         </select>
       </div>
-      <div class="form-group">
-        <label class="form-label">Message</label>
-        <textarea class="form-textarea" name="message" placeholder="Tell us a bit about what you're working on..."></textarea>
-      </div>
+      <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea" name="message" placeholder="Tell us a bit about what you're working on..."></textarea></div>
       <button type="submit" class="form-submit">Send Message</button>
     </form>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo">Northstone</div>
   <div class="footer-tag">Simple &middot; Sophisticated &middot; Straightforward</div>
@@ -400,7 +369,6 @@ footer{padding:40px 56px;border-top:1px solid var(--line);display:flex;justify-c
 </footer>
 
 <script>
-// Cursor
 const cursor=document.getElementById('cursor');
 const ring=document.getElementById('cursorRing');
 let mx=0,my=0,rx=0,ry=0;
@@ -411,12 +379,8 @@ document.querySelectorAll('a,button,input,textarea,select').forEach(el=>{
   el.addEventListener('mouseenter',()=>{ring.style.transform='translate(-50%,-50%) scale(1.8)';ring.style.borderColor='rgba(196,168,130,0.8)';});
   el.addEventListener('mouseleave',()=>{ring.style.transform='translate(-50%,-50%) scale(1)';ring.style.borderColor='rgba(196,168,130,0.4)';});
 });
-
-// Nav scroll
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>60));
-
-// Rotating tagline
 const taglines=document.querySelectorAll('.tagline');
 const dots=document.querySelectorAll('.tdot');
 let current=0;
@@ -430,8 +394,6 @@ function nextTagline(){
   dots[current].classList.add('active');
 }
 setInterval(nextTagline,3500);
-
-// Scroll reveal
 const observer=new IntersectionObserver(entries=>{
   entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);observer.unobserve(e.target);}});
 },{threshold:0.1});
